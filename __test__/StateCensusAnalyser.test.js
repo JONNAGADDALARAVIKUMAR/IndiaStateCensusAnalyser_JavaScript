@@ -6,7 +6,7 @@ const INCORRECT_EXTENSION_FILEPATH = 'C:\\Users\\Admin\\javaScript\\IndiaStateCe
 const FILE_PATH_DELIMITER = 'C:\\Users\\Admin\\javaScript\\IndiaStateCensusProject\\resources\\IndiaStateCensusDataDelimiter.csv';
 const FILE_PATH_HEADER = 'C:\\Users\\Admin\\javaScript\\IndiaStateCensusProject\\resources\\IndiaStateCensusDataHeader.csv';
 const FILE_PATH_STATE_CODES = 'C:\\Users\\Admin\\javaScript\\IndiaStateCensusProject\\resources\\IndiaStateCode.csv';
-
+const FILE_PATH_DELIMITER_STATE = 'C:\\Users\\Admin\\javaScript\\IndiaStateCensusProject\\resources\\IndiaStateCodeDelimiter.csv';
 const censusAnalyzerClass = new CensusAnalyzerClass();
 
 describe('testsForLoadIndiaStateCensusCSV', () => {
@@ -49,5 +49,10 @@ describe('testsForLoadIndiaStateCensusCSV', () => {
     //Sad TestCase
     test('This TestCase Pases when Returned Exception is Extension Incorrect, State Codes', () => {
         return expect(censusAnalyzerClass.stateCodeFile(INCORRECT_EXTENSION_FILEPATH)).rejects.toThrow('Extension Incorrect');
+    })
+
+    //Sad TestCase
+    test('This TestCase Pases when Returned Exception is Invalid Delimiter Arised, State Codes', () => {
+        return expect(censusAnalyzerClass.stateCodeFile(FILE_PATH_DELIMITER_STATE)).rejects.toThrow('Invalid Delimiter Arised');
     })
 })

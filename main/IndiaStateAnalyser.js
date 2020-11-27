@@ -56,13 +56,18 @@ class CensusAnalyzerClass {
                 fs.createReadStream(filePath)
                 .pipe(csv())
                 .on('data', (row) => {
-                    const stateData = {
-                        SrNo: row.SrNo,
-                        StateName: row.State,
-                        TIN: row.TIN,
-                        StateCode: row.StateCode
+                    if(row.SrNo == undefined || row.StateName == undefined || 
+                        row.TIN == undefined || row.StateCode == undefined) {
+                            reject(new Error('Invalid Delimiter Arised'));
+                    } else {
+                        const stateData = {
+                            SrNo: row.SrNo,
+                            StateName: row.State,
+                            TIN: row.TIN,
+                            StateCode: row.StateCode
                     }
                     statecodeData.push(stateData); 
+                }
                 })
             
                 .on('end', () => {
