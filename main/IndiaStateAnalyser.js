@@ -55,6 +55,12 @@ class CensusAnalyzerClass {
             } else {  
                 fs.createReadStream(filePath)
                 .pipe(csv())
+                .on('headers', (Header) => {
+                    if( Header[0] != 'SrNo' || Header[1] != 'StateName' || 
+                        Header[2] != 'TIN' || Header[3] != 'StateCode') {
+                            reject(new Error('Invalid Headers'));
+                    }
+                })
                 .on('data', (row) => {
                     if(row.SrNo == undefined || row.StateName == undefined || 
                         row.TIN == undefined || row.StateCode == undefined) {

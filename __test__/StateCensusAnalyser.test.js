@@ -7,6 +7,8 @@ const FILE_PATH_DELIMITER = 'C:\\Users\\Admin\\javaScript\\IndiaStateCensusProje
 const FILE_PATH_HEADER = 'C:\\Users\\Admin\\javaScript\\IndiaStateCensusProject\\resources\\IndiaStateCensusDataHeader.csv';
 const FILE_PATH_STATE_CODES = 'C:\\Users\\Admin\\javaScript\\IndiaStateCensusProject\\resources\\IndiaStateCode.csv';
 const FILE_PATH_DELIMITER_STATE = 'C:\\Users\\Admin\\javaScript\\IndiaStateCensusProject\\resources\\IndiaStateCodeDelimiter.csv';
+const FILE_PATH_HEADER_STATE = 'C:\\Users\\Admin\\javaScript\\IndiaStateCensusProject\\resources\\IndiaStateCodeHeader.csv';
+
 const censusAnalyzerClass = new CensusAnalyzerClass();
 
 describe('testsForLoadIndiaStateCensusCSV', () => {
@@ -54,5 +56,10 @@ describe('testsForLoadIndiaStateCensusCSV', () => {
     //Sad TestCase
     test('This TestCase Pases when Returned Exception is Invalid Delimiter Arised, State Codes', () => {
         return expect(censusAnalyzerClass.stateCodeFile(FILE_PATH_DELIMITER_STATE)).rejects.toThrow('Invalid Delimiter Arised');
+    })
+
+    //Sad TestCase
+    test('This TestCase Pases when Returned Exception is Invalid Headers', () => {
+        return expect(censusAnalyzerClass.stateCodeFile(FILE_PATH_HEADER_STATE)).rejects.toThrow('Invalid Headers');
     })
 })
