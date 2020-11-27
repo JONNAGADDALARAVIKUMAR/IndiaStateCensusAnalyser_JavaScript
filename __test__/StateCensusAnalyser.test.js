@@ -37,7 +37,12 @@ describe('testsForLoadIndiaStateCensusCSV', () => {
     })
 
     //Happy Test Case
-    test('This TestCase Pases When Return Value Equals to number of States', () => {
+    test('This TestCase Pases When Return Value Equals to number of States, State Codes', () => {
         return expect(censusAnalyzerClass.stateCodeFile(FILE_PATH_STATE_CODES)).resolves.toBe(37);
+    })
+
+    //Sad TestCase
+    test('This TestCase Pases when Returned Exception is No Such File, State Codes', () => {
+        return expect(censusAnalyzerClass.stateCodeFile(WRONG_FILEPATH)).rejects.toThrow('No Such File');
     })
 })

@@ -45,23 +45,26 @@ class CensusAnalyzerClass {
 
     stateCodeFile(filePath) {
         const statecodeData = [];
-        return new Promise(function(resolve) {
-                  
-            fs.createReadStream(filePath)
-            .pipe(csv())
-            .on('data', (row) => {
-                const stateData = {
-                    SrNo: row.SrNo,
-                    StateName: row.State,
-                    TIN: row.TIN,
-                    StateCode: row.StateCode
-                }
-                statecodeData.push(stateData); 
-            })
+        return new Promise(function(resolve, reject) {
+            if(!fs.existsSync(filePath)) {
+                reject(new Error('No Such File'));
+            } else {  
+                fs.createReadStream(filePath)
+                .pipe(csv())
+                .on('data', (row) => {
+                    const stateData = {
+                        SrNo: row.SrNo,
+                        StateName: row.State,
+                        TIN: row.TIN,
+                        StateCode: row.StateCode
+                    }
+                    statecodeData.push(stateData); 
+                })
             
-            .on('end', () => {
-                resolve(statecodeData.length)
-            })
+                .on('end', () => {
+                    resolve(statecodeData.length)
+                })
+            }
         })
     }
 }
