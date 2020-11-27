@@ -46,7 +46,11 @@ class CensusAnalyzerClass {
     stateCodeFile(filePath) {
         const statecodeData = [];
         return new Promise(function(resolve, reject) {
-            if(!fs.existsSync(filePath)) {
+            var ext = path.extname(filePath);
+            if(ext != '.csv') {   
+                reject(new Error('Extension Incorrect'));
+            }
+            else if(!fs.existsSync(filePath)) {
                 reject(new Error('No Such File'));
             } else {  
                 fs.createReadStream(filePath)

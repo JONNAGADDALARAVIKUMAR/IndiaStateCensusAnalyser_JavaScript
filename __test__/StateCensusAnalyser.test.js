@@ -45,4 +45,9 @@ describe('testsForLoadIndiaStateCensusCSV', () => {
     test('This TestCase Pases when Returned Exception is No Such File, State Codes', () => {
         return expect(censusAnalyzerClass.stateCodeFile(WRONG_FILEPATH)).rejects.toThrow('No Such File');
     })
+
+    //Sad TestCase
+    test('This TestCase Pases when Returned Exception is Extension Incorrect, State Codes', () => {
+        return expect(censusAnalyzerClass.stateCodeFile(INCORRECT_EXTENSION_FILEPATH)).rejects.toThrow('Extension Incorrect');
+    })
 })
