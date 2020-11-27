@@ -4,7 +4,7 @@ const FILE_PATH = 'C:\\Users\\Admin\\javaScript\\IndiaStateCensusProject\\resour
 const WRONG_FILEPATH = 'C:\\Users\\Admin\\javaScript\\StateCensusProject\\resources\\IndiaStateCensusData.csv';
 const INCORRECT_EXTENSION_FILEPATH = 'C:\\Users\\Admin\\javaScript\\IndiaStateCensusProject\\resources\\IndiaStateCensusData.json';
 const FILE_PATH_DELIMITER = 'C:\\Users\\Admin\\javaScript\\IndiaStateCensusProject\\resources\\IndiaStateCensusDataDelimiter.csv';
-
+const FILE_PATH_HEADER = 'C:\\Users\\Admin\\javaScript\\IndiaStateCensusProject\\resources\\IndiaStateCensusDataHeader.csv';
 //Happy Test Case
 test('This TestCase Pases When Return Value Equals to number of States', () => {
     readCsvFile(FILE_PATH)
@@ -34,5 +34,13 @@ test('This TestCase Pases when Returned Exception is Invalid Delimiter Arised', 
     readCsvFile(FILE_PATH_DELIMITER)
     .catch(function(error) {
         expect(error.message).toBe('Invalid Delimiter Arised');
+    })   
+})
+
+//Sad TestCase
+test('This TestCase Pases when Returned Exception is Invalid Headers', () => {
+    readCsvFile(FILE_PATH_HEADER)
+    .catch(function(error) {
+        expect(error.message).toBe('Invalid Headers');
     })   
 })

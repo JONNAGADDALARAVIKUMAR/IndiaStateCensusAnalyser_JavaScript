@@ -15,6 +15,12 @@ const readCsvFile = (filePath) => {
         } else {     
             fs.createReadStream(filePath)
             .pipe(csv())
+            .on('headers', (Header) => {
+                if( Header[0] != 'State' || Header[1] != 'Population' || 
+                    Header[2]!= 'AreaInSqKm' || Header[3] != 'DensityPerSqKm') {
+                        reject(new Error('Invalid Headers'));
+                }
+            })
             .on('data', (row) => {
                 if(row.State == undefined || row.Population == undefined || 
                     row.AreaInSqKm == undefined || row.DensityPerSqKm == undefined) {
