@@ -16,15 +16,19 @@ const readCsvFile = (filePath) => {
             fs.createReadStream(filePath)
             .pipe(csv())
             .on('data', (row) => {
-                const stateData = {
-                    State: row.State,
-                    Population: row.Population,
-                    AreaInSqKm: row.AreaInSqKm,
-                    DensityPerSqKm: row.DensityPerSqKm
-                }   
-                    states.push(stateData); 
+                if(row.State == undefined || row.Population == undefined || 
+                    row.AreaInSqKm == undefined || row.DensityPerSqKm == undefined) {
+                        reject(new Error('Invalid Delimiter Arised'));
+                } else {
+                    const stateData = {
+                        State: row.State,
+                        Population: row.Population,
+                        AreaInSqKm: row.AreaInSqKm,
+                        DensityPerSqKm: row.DensityPerSqKm
+                    }
+                    states.push(stateData);
+                }  
             })
-        
             .on('end', () => {
                 resolve(states.length)
             })
