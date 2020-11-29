@@ -90,4 +90,11 @@ describe('testsForSorting', () => {
             expect(sortedArray[28].State).toBe('Sikkim');
         });
     })
+    test('This TestCase Pases when Returned Array first and Last Most Populous Density States are matched', () => {
+        const sorting = new Sorting();
+        return sorting.densitySorter(FILE_PATH).then(sortedArray => {
+            expect(sortedArray[0].State).toBe('Bihar');
+            expect(sortedArray[28].State).toBe('Arunachal Pradesh');
+        });
+    })
 })

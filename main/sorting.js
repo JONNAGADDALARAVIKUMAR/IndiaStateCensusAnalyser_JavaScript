@@ -34,6 +34,16 @@ class Sorting {
             })
         })
     }
+    densitySorter = (filePath) => {
+        return new Promise(function(resolve) {
+            Analyser.stateCensusLoader(filePath)
+            .then(states => {
+                states.sort((first,second) => (second.DensityPerSqKm - first.DensityPerSqKm));
+                writeDataIntoJson(states, 'C:\\Users\\Admin\\javaScript\\IndiaStateCensusProject\\resources\\sortedByDensity.json');
+                resolve(states);
+            })
+        })
+    }
 }
 const writeDataIntoJson = (states, filePath) => {
     fs.writeFile(filePath, JSON.stringify(states, null, 2), err => {
