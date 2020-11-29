@@ -44,6 +44,17 @@ class Sorting {
             })
         })
     }
+
+    areaSorter = (filePath) => {
+        return new Promise(function(resolve) {
+            Analyser.stateCensusLoader(filePath)
+            .then(states => {
+                states.sort((first,second) => (second.AreaInSqKm - first.AreaInSqKm));
+                writeDataIntoJson(states, 'C:\\Users\\Admin\\javaScript\\IndiaStateCensusProject\\resources\\sortedByArea.json');
+                resolve(states);
+            })
+        })
+    }
 }
 const writeDataIntoJson = (states, filePath) => {
     fs.writeFile(filePath, JSON.stringify(states, null, 2), err => {

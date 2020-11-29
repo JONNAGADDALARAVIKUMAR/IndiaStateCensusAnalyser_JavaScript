@@ -97,4 +97,12 @@ describe('testsForSorting', () => {
             expect(sortedArray[28].State).toBe('Arunachal Pradesh');
         });
     })
+    
+    test('This TestCase Pases when Returned Array first and Last Largest Area States are matched', () => {
+        const sorting = new Sorting();
+        return sorting.areaSorter(FILE_PATH).then(sortedArray => {
+            expect(sortedArray[0].State).toBe('Rajasthan');
+            expect(sortedArray[28].State).toBe('Goa');
+        });
+    })
 })
