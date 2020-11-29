@@ -23,6 +23,17 @@ class Sorting {
             })
         })
     }
+
+    PopulationSorter = (filePath) => {
+        return new Promise(function(resolve) {
+            Analyser.stateCensusLoader(filePath)
+            .then(states => {
+                states.sort((first,second) => (second.Population - first.Population));
+                writeDataIntoJson(states, 'C:\\Users\\Admin\\javaScript\\IndiaStateCensusProject\\resources\\sortByPopulation.json');
+                resolve(states);
+            })
+        })
+    }
 }
 const writeDataIntoJson = (states, filePath) => {
     fs.writeFile(filePath, JSON.stringify(states, null, 2), err => {

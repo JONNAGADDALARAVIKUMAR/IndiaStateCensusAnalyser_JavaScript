@@ -83,4 +83,11 @@ describe('testsForSorting', () => {
             expect(sortedArray[36].StateCode).toBe('WB');
         });
     })
+    test('This TestCase Pases when Returned Array first and Last Most Populous States are matched', () => {
+        const sorting = new Sorting();
+        return sorting.PopulationSorter(FILE_PATH).then(sortedArray => {
+            expect(sortedArray[0].State).toBe('Uttar Pradesh');
+            expect(sortedArray[28].State).toBe('Sikkim');
+        });
+    })
 })
