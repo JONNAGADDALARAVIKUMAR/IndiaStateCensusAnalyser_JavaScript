@@ -14,7 +14,14 @@ class Sorting {
         })
     }
     stateCodeSorter = (filePath) => {
-        
+        return new Promise(function(resolve) {
+            Analyser.stateCodeLoader(filePath)
+            .then(states => {
+                states.sort((first,second) => (first.StateCode < second.StateCode) ? -1 : 1);
+                writeDataIntoJson(states, 'C:\\Users\\Admin\\javaScript\\IndiaStateCensusProject\\resources\\sortedStateCodes.json');
+                resolve(states);
+            })
+        })
     }
 }
 const writeDataIntoJson = (states, filePath) => {

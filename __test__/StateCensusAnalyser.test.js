@@ -39,7 +39,9 @@ describe('testsForLoadIndiaStateCensusCSV', () => {
     test('This TestCase Pases when Returned Exception is Invalid Headers', () => {
         return analyzer.stateCensusLoader(FILE_PATH_HEADER).catch(error => expect(error.message).toBe('Invalid Headers'));
     })
+})
 
+describe('testsForLoadIndiaStateCodeCSV', () => {
     //Happy Test Case
     test('This TestCase Pases When Return Value Equals to number of States State Codes', () => {
         return analyzer.stateCodeLoader(FILE_PATH_STATE_CODES).then(states => expect(states.length).toBe(37));
@@ -64,11 +66,21 @@ describe('testsForLoadIndiaStateCensusCSV', () => {
     test('This TestCase Pases when Returned Exception is Invalid Headers', () => {
         return expect(analyzer.stateCodeLoader(FILE_PATH_HEADER_STATE)).rejects.toThrow('Invalid Headers');
     })
+
+})
+describe('testsForSorting', () => {
     test('This TestCase Pases when Returned Array first and Last States are matched', () => {
         const sorting = new Sorting();
         return sorting.stateSorter(FILE_PATH).then(sortedArray => {
             expect(sortedArray[0].State).toBe('Andhra Pradesh');
             expect(sortedArray[28].State).toBe('West Bengal');
+        });
+    })
+    test('This TestCase Pases when Returned Array first and Last State Codes are matched', () => {
+        const sorting = new Sorting();
+        return sorting.stateCodeSorter(FILE_PATH_STATE_CODES).then(sortedArray => {
+            expect(sortedArray[0].StateCode).toBe('AD');
+            expect(sortedArray[36].StateCode).toBe('WB');
         });
     })
 })

@@ -1,0 +1,187 @@
+[
+  {
+    "SrNo": "3",
+    "TIN": "37",
+    "StateCode": "AD"
+  },
+  {
+    "SrNo": "1",
+    "TIN": "35",
+    "StateCode": "AN"
+  },
+  {
+    "SrNo": "2",
+    "TIN": "28",
+    "StateCode": "AP"
+  },
+  {
+    "SrNo": "4",
+    "TIN": "12",
+    "StateCode": "AR"
+  },
+  {
+    "SrNo": "5",
+    "TIN": "18",
+    "StateCode": "AS"
+  },
+  {
+    "SrNo": "6",
+    "TIN": "10",
+    "StateCode": "BH"
+  },
+  {
+    "SrNo": "7",
+    "TIN": "04",
+    "StateCode": "CH"
+  },
+  {
+    "SrNo": "8",
+    "TIN": "22",
+    "StateCode": "CT"
+  },
+  {
+    "SrNo": "10",
+    "TIN": "25",
+    "StateCode": "DD"
+  },
+  {
+    "SrNo": "11",
+    "TIN": "07",
+    "StateCode": "DL"
+  },
+  {
+    "SrNo": "9",
+    "TIN": "26",
+    "StateCode": "DN"
+  },
+  {
+    "SrNo": "12",
+    "TIN": "30",
+    "StateCode": "GA"
+  },
+  {
+    "SrNo": "13",
+    "TIN": "24",
+    "StateCode": "GJ"
+  },
+  {
+    "SrNo": "15",
+    "TIN": "02",
+    "StateCode": "HP"
+  },
+  {
+    "SrNo": "14",
+    "TIN": "06",
+    "StateCode": "HR"
+  },
+  {
+    "SrNo": "17",
+    "TIN": "20",
+    "StateCode": "JH"
+  },
+  {
+    "SrNo": "16",
+    "TIN": "01",
+    "StateCode": "JK"
+  },
+  {
+    "SrNo": "18",
+    "TIN": "29",
+    "StateCode": "KA"
+  },
+  {
+    "SrNo": "19",
+    "TIN": "32",
+    "StateCode": "KL"
+  },
+  {
+    "SrNo": "20",
+    "TIN": "31",
+    "StateCode": "LD"
+  },
+  {
+    "SrNo": "24",
+    "TIN": "17",
+    "StateCode": "ME"
+  },
+  {
+    "SrNo": "22",
+    "TIN": "27",
+    "StateCode": "MH"
+  },
+  {
+    "SrNo": "25",
+    "TIN": "15",
+    "StateCode": "MI"
+  },
+  {
+    "SrNo": "23",
+    "TIN": "14",
+    "StateCode": "MN"
+  },
+  {
+    "SrNo": "21",
+    "TIN": "23",
+    "StateCode": "MP"
+  },
+  {
+    "SrNo": "26",
+    "TIN": "13",
+    "StateCode": "NL"
+  },
+  {
+    "SrNo": "27",
+    "TIN": "21",
+    "StateCode": "OR"
+  },
+  {
+    "SrNo": "29",
+    "TIN": "03",
+    "StateCode": "PB"
+  },
+  {
+    "SrNo": "28",
+    "TIN": "34",
+    "StateCode": "PY"
+  },
+  {
+    "SrNo": "30",
+    "TIN": "08",
+    "StateCode": "RJ"
+  },
+  {
+    "SrNo": "31",
+    "TIN": "11",
+    "StateCode": "SK"
+  },
+  {
+    "SrNo": "32",
+    "TIN": "33",
+    "StateCode": "TN"
+  },
+  {
+    "SrNo": "34",
+    "TIN": "16",
+    "StateCode": "TR"
+  },
+  {
+    "SrNo": "33",
+    "TIN": "36",
+    "StateCode": "TS"
+  },
+  {
+    "SrNo": "35",
+    "TIN": "09",
+    "StateCode": "UP"
+  },
+  {
+    "SrNo": "36",
+    "TIN": "05",
+    "StateCode": "UT"
+  },
+  {
+    "SrNo": "37",
+    "TIN": "19",
+    "StateCode": "WB"
+  }
+]
