@@ -1,6 +1,6 @@
 const fs = require('fs')
 const csv = require('csv-parser');
-const path = require('path');
+const { resolve } = require('path');
 
 //Reading CSV file and Storing in an Array
 class CensusAnalyzer {
@@ -30,7 +30,7 @@ class CensusAnalyzer {
                 }  
             })
             .on('end', () => {
-                resolve(states.length)
+                resolve(states)
             })
         })
     }
@@ -61,9 +61,10 @@ class CensusAnalyzer {
                 }
             })
             .on('end', () => {
-                resolve(statecodeData.length)
+                resolve(statecodeData)
             })
         })
     }
 }
+
 module.exports = CensusAnalyzer;
