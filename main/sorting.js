@@ -5,7 +5,7 @@ const fs = require('fs')
 class Sorting {
     stateSorter = (filePath) => {
         return new Promise(function(resolve) {
-            Analyser.stateCensusLoader(filePath)
+            Analyser.stateCensusLoaderForSorting(filePath)
             .then(states => {
                 states.sort((first,second) => (first.State.toUpperCase() < second.State.toUpperCase()) ? -1 : 1);
                 writeDataIntoJson(states, 'C:\\Users\\Admin\\javaScript\\IndiaStateCensusProject\\resources\\sortedStates.json');
@@ -26,7 +26,7 @@ class Sorting {
 
     PopulationSorter = (filePath) => {
         return new Promise(function(resolve) {
-            Analyser.stateCensusLoader(filePath)
+            Analyser.stateCensusLoaderForSorting(filePath)
             .then(states => {
                 states.sort((first,second) => (second.Population - first.Population));
                 writeDataIntoJson(states, 'C:\\Users\\Admin\\javaScript\\IndiaStateCensusProject\\resources\\sortByPopulation.json');
@@ -36,7 +36,7 @@ class Sorting {
     }
     densitySorter = (filePath) => {
         return new Promise(function(resolve) {
-            Analyser.stateCensusLoader(filePath)
+            Analyser.stateCensusLoaderForSorting(filePath)
             .then(states => {
                 states.sort((first,second) => (second.DensityPerSqKm - first.DensityPerSqKm));
                 writeDataIntoJson(states, 'C:\\Users\\Admin\\javaScript\\IndiaStateCensusProject\\resources\\sortedByDensity.json');
@@ -47,7 +47,7 @@ class Sorting {
 
     areaSorter = (filePath) => {
         return new Promise(function(resolve) {
-            Analyser.stateCensusLoader(filePath)
+            Analyser.stateCensusLoaderForSorting(filePath)
             .then(states => {
                 states.sort((first,second) => (second.AreaInSqKm - first.AreaInSqKm));
                 writeDataIntoJson(states, 'C:\\Users\\Admin\\javaScript\\IndiaStateCensusProject\\resources\\sortedByArea.json');

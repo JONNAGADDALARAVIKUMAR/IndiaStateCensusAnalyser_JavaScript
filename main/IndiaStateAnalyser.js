@@ -1,12 +1,13 @@
 const fs = require('fs')
 const csv = require('csv-parser');
-const { resolve } = require('path');
+
+const  states = [];
 
 //Reading CSV file and Storing in an Array
 class CensusAnalyzer {
     stateCensusLoader(filePath) {
         const states = [];
-        return new Promise(function(resolve, reject) {    
+        return new Promise(function(resolve, reject) {   
             fs.createReadStream(filePath)
             .pipe(csv())
             .on('headers', (Header) => {
@@ -34,7 +35,7 @@ class CensusAnalyzer {
             })
         })
     }
-
+    
     stateCodeLoader(filePath) {
         const statecodeData = [];
         return new Promise(function(resolve, reject) { 
@@ -53,7 +54,7 @@ class CensusAnalyzer {
                 } else {
                     const stateData = {
                         SrNo: row.SrNo,
-                        StateName: row.State,
+                        StateName: row.StateName,
                         TIN: row.TIN,
                         StateCode: row.StateCode
                     }
@@ -65,6 +66,28 @@ class CensusAnalyzer {
             })
         })
     }
-}
 
+    stateCensusLoaderForSorting(filePath) {
+        return new Promise(function(resolve) {  
+            if(states.length == 0) {
+                fs.createReadStream(filePath)
+                .pipe(csv())
+                .on('data', (row) => {
+                    const stateData = {
+                        State: row.State,
+                        Population: row.Population,
+                        AreaInSqKm: row.AreaInSqKm,
+                        DensityPerSqKm: row.DensityPerSqKm
+                    }
+                    states.push(stateData);  
+                })
+                .on('end', () => {
+                    resolve(states)
+                })
+            } else {
+                resolve(states)
+            }
+        })
+    }    
+}
 module.exports = CensusAnalyzer;

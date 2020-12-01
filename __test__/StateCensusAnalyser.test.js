@@ -1,7 +1,7 @@
 const CensusAnalyzer = require('../main/IndiaStateAnalyser');
 const checkFileType = require('../main/NoSuchFileInvalidExtension');
 const Sorting = require('../main/sorting');
-'use strict'
+
 const FILE_PATH = 'C:\\Users\\Admin\\javaScript\\IndiaStateCensusProject\\resources\\IndiaStateCensusData.csv';
 const WRONG_FILEPATH = 'C:\\Users\\Admin\\javaScript\\StateCensusProject\\resources\\IndiaStateCensusData.csv';
 const INCORRECT_EXTENSION_FILEPATH = 'C:\\Users\\Admin\\javaScript\\IndiaStateCensusProject\\resources\\IndiaStateCensusData.json';
