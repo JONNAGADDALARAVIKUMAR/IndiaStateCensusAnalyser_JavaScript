@@ -1,6 +1,8 @@
 const fs = require('fs')
 const csv = require('csv-parser');
+const Exceptions = require('./Exceptions');
 
+const exception = new Exceptions();
 const  states = [];
 
 //Reading CSV file and Storing in an Array
@@ -13,13 +15,13 @@ class CensusAnalyzer {
             .on('headers', (Header) => {
                 if( Header[0] != 'State' || Header[1] != 'Population' || 
                     Header[2] != 'AreaInSqKm' || Header[3] != 'DensityPerSqKm') {
-                        reject(new Error('Invalid Headers'));
+                        reject(new Error(exception.exceptions.headers));
                 }
             })
             .on('data', (row) => {
                 if(row.State == undefined || row.Population == undefined || 
                     row.AreaInSqKm == undefined || row.DensityPerSqKm == undefined) {
-                        reject(new Error('Invalid Delimiter Arised'));
+                        reject(new Error(exception.exceptions.delimiter));
                 } else {
                     const stateData = {
                         State: row.State,
@@ -44,13 +46,13 @@ class CensusAnalyzer {
             .on('headers', (Header) => {
                 if( Header[0] != 'SrNo' || Header[1] != 'StateName' || 
                     Header[2] != 'TIN' || Header[3] != 'StateCode') {
-                        reject(new Error('Invalid Headers'));
+                        reject(new Error(exception.exceptions.headers));
                 }
             })
             .on('data', (row) => {
                 if(row.SrNo == undefined || row.StateName == undefined || 
                     row.TIN == undefined || row.StateCode == undefined) {
-                        reject(new Error('Invalid Delimiter Arised'));
+                        reject(new Error(exception.exceptions.delimiter));
                 } else {
                     const stateData = {
                         SrNo: row.SrNo,
